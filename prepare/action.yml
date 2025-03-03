@@ -8,7 +8,7 @@ inputs:
   node-version:
     description: Node.js version
     required: false
-    default: "22"
+    default: "lts/*"
   npm-registry:
     description: npm registry URL
     required: false
@@ -19,11 +19,11 @@ runs:
   using: composite
   steps:
     - name: Checkout repository
-      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      uses: actions/checkout@latest
       with:
         fetch-depth: ${{ inputs.fetch-depth }}
     - name: Set up Node.js
-      uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4.0.1
+      uses: actions/setup-node@latest
       with:
         node-version: ${{ inputs.node-version }}
         registry-url: ${{ inputs.npm-registry }}
